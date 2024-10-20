@@ -7,6 +7,7 @@ from app_init import app
 from database import db, run_migrations
 from shared import fetch_daily_text
 
+
 # Setup logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
