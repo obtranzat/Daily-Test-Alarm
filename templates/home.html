@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+    <link rel="stylesheet" href="/static/css/styles.css" />
+    <link rel="icon" href="https://storage.googleapis.com/lazy-icons/not-found-placeholder.webp" type="image/x-icon">
+    <title>Scripture Alarm</title>
+  </head>
+  <body>
+    {% include 'partials/_header.html' %}
+    <div class="main-content">
+      <div class="text-center py-10">
+        <h1 class="text-3xl font-bold mb-4">Scripture Alarm</h1>
+        <div id="current-time" class="text-2xl mb-4"></div>
+        <div class="mb-4">
+          <select id="alarm-month" class="p-2 border rounded mr-2"></select>
+          <select id="alarm-day" class="p-2 border rounded mr-2"></select>
+          <select id="alarm-year" class="p-2 border rounded mr-2"></select>
+          <input type="number" id="alarm-hour" min="0" max="23" placeholder="HH" class="p-2 border rounded mr-2" style="width: 60px;">
+          <input type="number" id="alarm-minute" min="0" max="59" placeholder="MM" class="p-2 border rounded mr-2" style="width: 60px;">
+        </div>
+        <button id="set-alarm" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Set Alarm
+        </button>
+        <div id="daily-text" class="mt-8 p-4 bg-gray-100 rounded">
+          <h2 class="text-xl font-semibold mb-2" id="currentDate"></h2>
+          <p class="whitespace-pre-line">{{ daily_text }}</p>
+        </div>
+        <button id="stop-alarm" style="display: none;" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mt-4">
+          Stop Alarm
+        </button>
+      </div>
+    </div>
+    <script src="/static/js/home.js"></script>
+    <script src="/static/js/theme.js"></script>
+  </body>
+</html>
