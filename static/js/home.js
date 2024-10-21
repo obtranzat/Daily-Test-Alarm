@@ -132,3 +132,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('stop-alarm').addEventListener('click', stopAlarm);
 });
+
+// Language selector functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const languageButton = document.getElementById('language-select-button');
+    const languageMenu = document.getElementById('language-menu');
+    const languageOptions = document.querySelectorAll('.language-option');
+
+    languageButton.addEventListener('click', function() {
+        languageMenu.classList.toggle('hidden');
+    });
+
+    languageOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            const selectedLang = this.getAttribute('data-lang');
+            changeLanguage(selectedLang);
+            languageMenu.classList.add('hidden');
+        });
+    });
+
+    // Close language menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!languageButton.contains(event.target) && !languageMenu.contains(event.target)) {
+            languageMenu.classList.add('hidden');
+        }
+    });
+});
+
+function changeLanguage(lang) {
+    // TODO: Implement language change logic
+    console.log('Changing language to:', lang);
+    // Here you would typically update the UI elements and fetch new content
+    // For now, we'll just reload the page
+    window.location.reload();
+}
